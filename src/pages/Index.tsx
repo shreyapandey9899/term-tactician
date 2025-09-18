@@ -1,6 +1,12 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
+import Problem from "@/components/Problem";
+import Solution from "@/components/Solution";
+import WowFeatures from "@/components/WowFeatures";
+import HowItWorks from "@/components/HowItWorks";
+import Impact from "@/components/Impact";
+import Demo from "@/components/Demo";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -8,8 +14,14 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <Features />
+        <Problem />
+        <Solution />
+        <WowFeatures />
+        <HowItWorks />
+        <Impact />
+        <Demo />
       </main>
+      <Footer />
     </div>
   );
 };
