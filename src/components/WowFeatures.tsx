@@ -1,44 +1,20 @@
-import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
-  Network, 
-  MessageCircle, 
   GitCompare, 
   Camera, 
   ArrowRight,
-  Shield,
-  AlertTriangle,
-  CheckCircle,
-  HelpCircle
+  Upload,
+  FileText
 } from "lucide-react";
-import RiskMap from "@/components/RiskMap";
 
 const WowFeatures = () => {
-  const [showRiskMap, setShowRiskMap] = useState(false);
   const features = [
-    {
-      icon: <Network className="w-12 h-12" />,
-      title: "Interactive Risk Map",
-      description: "Visual mindmap of your contract with color-coded clauses",
-      preview: "Safe • Risky • Unusual",
-      colors: ["gradient-trust", "gradient-warning", "gradient-danger"],
-      action: "Explore Map"
-    },
-    {
-      icon: <MessageCircle className="w-12 h-12" />,
-      title: "What If? Simulator",
-      description: "Ask questions about scenarios and get instant answers",
-      preview: "What if I break the lease early?",
-      colors: ["gradient-secondary"],
-      action: "Try Simulator"
-    },
     {
       icon: <GitCompare className="w-12 h-12" />,
       title: "DocuDuel",
       description: "Compare two contracts side-by-side with AI insights",
       preview: "Contract A vs Contract B",
-      colors: ["gradient-primary"],
       action: "Compare Now"
     },
     {
@@ -46,15 +22,8 @@ const WowFeatures = () => {
       title: "Snap-a-Clause",
       description: "Upload or photograph any clause for instant analysis",
       preview: "Point • Snap • Understand",
-      colors: ["gradient-warning"],
       action: "Snap Clause"
     }
-  ];
-
-  const clauseTypes = [
-    { icon: <CheckCircle className="w-6 h-6" />, label: "Safe Terms", color: "text-green-600" },
-    { icon: <AlertTriangle className="w-6 h-6" />, label: "Risky Clauses", color: "text-amber-600" },
-    { icon: <Shield className="w-6 h-6" />, label: "Unusual Terms", color: "text-red-600" }
   ];
 
   return (
@@ -73,38 +42,87 @@ const WowFeatures = () => {
           </p>
         </div>
 
-        {/* Interactive Risk Map Demo */}
+        {/* DocuDuel Feature Showcase */}
         <div className="mb-16">
           <Card className="p-8 bg-card/80 backdrop-blur-sm border-border/50 shadow-feature">
             <div className="text-center space-y-6 mb-8">
               <h3 className="text-3xl font-bold flex items-center justify-center gap-3">
-                <Network className="w-8 h-8 text-primary" />
-                Interactive Risk Map
+                <GitCompare className="w-8 h-8 text-primary" />
+                DocuDuel
               </h3>
               <p className="text-muted-foreground">
-                Visualize your contract as an interactive mindmap with color-coded risk levels
+                Compare two contracts side-by-side with AI-powered insights and recommendations
               </p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {clauseTypes.map((type, index) => (
-                <div key={index} className="flex items-center gap-3 p-4 rounded-lg bg-accent/50">
-                  <div className={type.color}>
-                    {type.icon}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-4">
+                <div className="p-4 rounded-lg bg-accent/50 border border-border/50">
+                  <div className="flex items-center gap-3 mb-2">
+                    <FileText className="w-5 h-5 text-primary" />
+                    <span className="font-medium">Contract A</span>
                   </div>
-                  <span className="font-medium text-foreground">{type.label}</span>
+                  <p className="text-sm text-muted-foreground">Employment Agreement - TechCorp</p>
                 </div>
-              ))}
+                <div className="p-4 rounded-lg bg-accent/50 border border-border/50">
+                  <div className="flex items-center gap-3 mb-2">
+                    <FileText className="w-5 h-5 text-secondary" />
+                    <span className="font-medium">Contract B</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Employment Agreement - StartupXYZ</p>
+                </div>
+              </div>
+              
+              <div className="relative bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-8 min-h-48 flex items-center justify-center">
+                <div className="text-center space-y-4">
+                  <GitCompare className="w-20 h-20 text-primary mx-auto animate-float" />
+                  <p className="text-muted-foreground font-medium">Side-by-Side Comparison</p>
+                  <div className="flex gap-2 justify-center">
+                    <div className="px-3 py-1 rounded-full bg-green-500/20 text-green-700 text-xs font-medium">Better Terms</div>
+                    <div className="px-3 py-1 rounded-full bg-red-500/20 text-red-700 text-xs font-medium">Risk Found</div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </Card>
+        </div>
 
-            <div className="relative bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-8 min-h-48 flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <Network className="w-20 h-20 text-primary mx-auto animate-pulse-glow" />
-                <p className="text-muted-foreground">Interactive Contract Visualization</p>
-                <div className="flex gap-2 justify-center">
-                  <div className="w-3 h-3 rounded-full gradient-trust animate-pulse"></div>
-                  <div className="w-3 h-3 rounded-full gradient-warning animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                  <div className="w-3 h-3 rounded-full gradient-danger animate-pulse" style={{animationDelay: '1s'}}></div>
+        {/* Snap-a-Clause Feature Showcase */}
+        <div className="mb-16">
+          <Card className="p-8 bg-card/80 backdrop-blur-sm border-border/50 shadow-feature">
+            <div className="text-center space-y-6 mb-8">
+              <h3 className="text-3xl font-bold flex items-center justify-center gap-3">
+                <Camera className="w-8 h-8 text-secondary" />
+                Snap-a-Clause
+              </h3>
+              <p className="text-muted-foreground">
+                Upload or photograph any clause for instant AI analysis and plain-English explanation
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative bg-gradient-to-br from-secondary/5 to-primary/5 rounded-xl p-8 min-h-48 flex items-center justify-center">
+                <div className="text-center space-y-4">
+                  <Camera className="w-20 h-20 text-secondary mx-auto animate-pulse" />
+                  <p className="text-muted-foreground font-medium">Point, Snap, Understand</p>
+                  <div className="flex gap-2 justify-center">
+                    <Upload className="w-5 h-5 text-secondary animate-bounce" />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="p-4 rounded-lg bg-secondary/10 border border-secondary/20">
+                  <h4 className="font-semibold text-foreground mb-2">Clause Analysis</h4>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    "The Employee agrees to a non-compete period of 24 months..."
+                  </p>
+                  <div className="p-3 rounded bg-background/80">
+                    <p className="text-xs font-medium text-secondary">AI Explanation:</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      This restricts you from working with competitors for 2 years. This may be unenforceable in your jurisdiction.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -112,7 +130,7 @@ const WowFeatures = () => {
         </div>
 
         {/* Feature Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {features.map((feature, index) => (
             <Card key={index} className="group p-6 bg-card/80 backdrop-blur-sm border-border/50 hover:shadow-hero transition-smooth text-center space-y-4">
               <div className="w-20 h-20 mx-auto rounded-2xl gradient-primary flex items-center justify-center text-white shadow-feature group-hover:animate-float">
@@ -129,49 +147,13 @@ const WowFeatures = () => {
                 variant="outline" 
                 size="sm" 
                 className="w-full border-primary/30 hover:bg-primary/5"
-                onClick={() => {
-                  if (feature.title === "Interactive Risk Map") {
-                    setShowRiskMap(true);
-                  }
-                }}
               >
                 {feature.action} <ArrowRight className="w-4 h-4" />
               </Button>
             </Card>
           ))}
         </div>
-
-        {/* What If Simulator Preview */}
-        <div className="mt-16">
-          <Card className="p-8 bg-card/80 backdrop-blur-sm border-border/50 shadow-feature">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-6">
-                <h3 className="text-3xl font-bold flex items-center gap-3">
-                  <HelpCircle className="w-8 h-8 text-secondary" />
-                  "What If?" Simulator
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Ask natural language questions about your contract scenarios 
-                  and get instant, AI-powered answers with legal backing.
-                </p>
-                <div className="space-y-3">
-                  <div className="p-3 rounded-lg bg-accent/50 text-sm">
-                    <strong>Q:</strong> "What if I break the lease early?"
-                  </div>
-                  <div className="p-3 rounded-lg gradient-secondary text-white text-sm">
-                    <strong>A:</strong> Based on Section 8.2, you'll owe 2 months rent penalty plus forfeiture of security deposit...
-                  </div>
-                </div>
-              </div>
-              <div className="relative bg-gradient-to-br from-secondary/10 to-primary/10 rounded-xl p-8 min-h-48 flex items-center justify-center">
-                <MessageCircle className="w-20 h-20 text-secondary animate-float" />
-              </div>
-            </div>
-          </Card>
-        </div>
       </div>
-      
-      {showRiskMap && <RiskMap onClose={() => setShowRiskMap(false)} />}
     </section>
   );
 };
