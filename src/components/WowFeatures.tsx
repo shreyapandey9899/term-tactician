@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
@@ -11,8 +12,10 @@ import {
   CheckCircle,
   HelpCircle
 } from "lucide-react";
+import RiskMap from "@/components/RiskMap";
 
 const WowFeatures = () => {
+  const [showRiskMap, setShowRiskMap] = useState(false);
   const features = [
     {
       icon: <Network className="w-12 h-12" />,
@@ -122,7 +125,16 @@ const WowFeatures = () => {
                 <div className="text-xs font-medium text-primary">{feature.preview}</div>
               </div>
 
-              <Button variant="outline" size="sm" className="w-full border-primary/30 hover:bg-primary/5">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="w-full border-primary/30 hover:bg-primary/5"
+                onClick={() => {
+                  if (feature.title === "Interactive Risk Map") {
+                    setShowRiskMap(true);
+                  }
+                }}
+              >
                 {feature.action} <ArrowRight className="w-4 h-4" />
               </Button>
             </Card>
@@ -158,6 +170,8 @@ const WowFeatures = () => {
           </Card>
         </div>
       </div>
+      
+      {showRiskMap && <RiskMap onClose={() => setShowRiskMap(false)} />}
     </section>
   );
 };
