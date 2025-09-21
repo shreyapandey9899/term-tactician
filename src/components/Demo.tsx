@@ -1,14 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Play, ArrowRight, Zap, Trophy, Code, Users } from "lucide-react";
+import { Play, ArrowRight, Zap, Trophy, Code, Users, Brain } from "lucide-react";
+import { useState } from "react";
+import ClauseCartographer from "./ClauseCartographer";
 
 const Demo = () => {
+  const [showClauseCartographer, setShowClauseCartographer] = useState(false);
+
   const demoFeatures = [
     "Interactive contract analysis",
     "Real-time risk assessment", 
-    "Negotiation suggestions",
-    "Calendar integration demo",
-    "Local law validation"
+    "AI-powered clause mapping",
+    "Visual risk visualization",
+    "Smart negotiation suggestions"
   ];
 
   const hackathonInfo = [
@@ -19,7 +23,11 @@ const Demo = () => {
   ];
 
   return (
-    <section id="demo" className="py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <>
+      {showClauseCartographer && (
+        <ClauseCartographer onClose={() => setShowClauseCartographer(false)} />
+      )}
+      <section id="demo" className="py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-6 mb-16">
           <h2 className="text-4xl md:text-5xl font-bold">
@@ -56,9 +64,13 @@ const Demo = () => {
                 ))}
               </div>
 
-              <Button size="lg" className="gradient-primary text-white hover:opacity-90 shadow-feature animate-pulse-glow">
-                <Play className="w-5 h-5" />
-                Launch Demo
+              <Button 
+                size="lg" 
+                className="gradient-primary text-white hover:opacity-90 shadow-feature animate-pulse-glow"
+                onClick={() => setShowClauseCartographer(true)}
+              >
+                <Brain className="w-5 h-5" />
+                Launch Clause Cartographer
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
@@ -99,9 +111,13 @@ const Demo = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gradient-primary text-white">
-              <Zap className="w-5 h-5" />
-              Try the Demo
+            <Button 
+              size="lg" 
+              className="gradient-primary text-white"
+              onClick={() => setShowClauseCartographer(true)}
+            >
+              <Brain className="w-5 h-5" />
+              Try Clause Cartographer
             </Button>
             <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/5">
               <Code className="w-5 h-5" />
@@ -116,6 +132,7 @@ const Demo = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
