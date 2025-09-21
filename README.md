@@ -10,7 +10,7 @@ Legal documents are complex, filled with jargon, and often inaccessible to non-l
 
 ---
 
-## **💡 Key Features**
+## **Key Features**
 
 1. **Interactive Risk Map**
 
