@@ -1,8 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Shield, Zap, Scale } from "lucide-react";
+import { ArrowRight, Play, Shield, Zap, Scale, Brain } from "lucide-react";
+import { useState } from "react";
+import ClauseCartographer from "./ClauseCartographer";
 
 const Hero = () => {
+  const [showClauseCartographer, setShowClauseCartographer] = useState(false);
+
   return (
+    <>
+      {showClauseCartographer && (
+        <ClauseCartographer onClose={() => setShowClauseCartographer(false)} />
+      )}
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-accent/30 to-background pt-16">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -31,9 +39,13 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="text-lg px-8 py-6 gradient-primary text-white hover:opacity-90 shadow-hero animate-pulse-glow">
-              <Play className="w-5 h-5" />
-              Try the Demo
+            <Button 
+              size="lg" 
+              className="text-lg px-8 py-6 gradient-primary text-white hover:opacity-90 shadow-hero animate-pulse-glow"
+              onClick={() => setShowClauseCartographer(true)}
+            >
+              <Brain className="w-5 h-5" />
+              Launch Clause Cartographer
               <ArrowRight className="w-5 h-5" />
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/5">
@@ -98,6 +110,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
