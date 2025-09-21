@@ -74,13 +74,13 @@ Legal documents are complex, filled with jargon, and often inaccessible to non-l
 
 ---
 
-## **📂 Tech Stack**
+## **Tech Stack**
 
 * **Frontend:** Next.js (React)
 * **Backend:** Python + FastAPI
 * **AI:** Google Gemini 1.5 Pro, Document AI, LangChain
-* **Vector DB:** ChromaDB / Pinecone
+* **Vector DB:** ChromaDB
 * **Cloud:** Google Cloud Storage, Cloud Run
-* **Calendar Integration:** Google & Outlook APIs
+* **Calendar Integration:** Google APIs
 
 ---
