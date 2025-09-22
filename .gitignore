@@ -1,0 +1,11 @@
+﻿# Root ignores
+.env
+*.env
+**/.env*
+**/node_modules/
+**/.venv/
+**/dist/
+**/build/
+__pycache__/
+*.pyc
+.DS_Store
