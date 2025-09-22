@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿# Root ignores
 .env
 *.env
@@ -9,3 +10,29 @@
 __pycache__/
 *.pyc
 .DS_Store
+=======
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+>>>>>>> e8014d7910a7064e82d230791ef46958d0907284
